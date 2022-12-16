@@ -46,6 +46,16 @@ public class Facade {
         }
     }
 
+    // deleteBreed
+    public static void deleteBreed(String name) throws Exception {
+        Breed breed = daoBreed.read(name);
+        if (breed != null) {
+            daoBreed.delete(breed);
+        } else {
+            throw new Exception("Breed not found");
+        }
+    }
+
     public static List<Breed> readAllBreeds() {
         return daoBreed.readAll();
     }
